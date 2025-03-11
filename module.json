@@ -6,10 +6,10 @@
   "authors": [
       { "name": "Tsamsiyu" }
   ],
-  "version": "0.4",
+  "version": "0.5",
   "compatibility": {
       "minimum": 10,
-      "verified": "11"
+      "verified": "12"
   },
   "esmodules": [ 
       "main.js"
@@ -22,7 +22,7 @@
           "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
           "compatibility": {
             "minimum": "2.1.2",
-            "verified": "2.2.2"
+            "verified": "4.3.5"
           }
         },{
         "id": "pf2e",
