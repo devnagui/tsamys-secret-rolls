@@ -56,7 +56,7 @@ function startPf2e(){
 }
 
 function startDnd5e(){
-  Hooks.on("preCreateChatMessage", async (rawMessage) => {
+  Hooks.on("dnd5e.preRollSkillV2", async (config, dialog, rawMessage) => {
     if (rawMessage.flavor.includes("Skill Check")){
       if(game.settings.get("tsamys-secret-rolls", "hideAcrobatics") && rawMessage.flavor.includes("Acrobatics")){rawMessage.applyRollMode("blindroll");}
       if(game.settings.get("tsamys-secret-rolls", "hideAnimalHandling") && rawMessage.flavor.includes("Animal Handling")){rawMessage.applyRollMode("blindroll");}
@@ -77,6 +77,11 @@ function startDnd5e(){
       if(game.settings.get("tsamys-secret-rolls", "hideStealth") && rawMessage.flavor.includes("Stealth")){rawMessage.applyRollMode("blindroll");}
       if(game.settings.get("tsamys-secret-rolls", "hideSurvival") && rawMessage.flavor.includes("Survival")){rawMessage.applyRollMode("blindroll");}
     }
+    if (rawMessage.flavor.includes("Death Saving Throw")){
+      if(game.settings.get("tsamys-secret-rolls", "hideDeathSaves")){rawMessage.applyRollMode("blindroll");}
+    }
+  })
+ Hooks.on("dnd5e.preRollAbilityCheckV2", async (config, dialog, rawMessage) => {
     if (rawMessage.flavor.includes("Death Saving Throw")){
       if(game.settings.get("tsamys-secret-rolls", "hideDeathSaves")){rawMessage.applyRollMode("blindroll");}
     }
